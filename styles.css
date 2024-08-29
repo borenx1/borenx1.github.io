@@ -26,7 +26,7 @@ header .header-inner {
   height: 80px;
   display: flex;
   align-items: center;
-  width: min(800px, 100% - 40px);
+  width: min(1000px, 100% - 40px);
   margin-inline: auto;
   column-gap: 20px;
 }
@@ -75,18 +75,20 @@ header .socials .icon {
 }
 
 main {
-  width: min(800px, 100% - 40px);
+  width: min(1000px, 100% - 40px);
   margin-inline: auto;
 }
 
 footer {
   margin-top: auto;
-  padding-top: 40px;
+  padding-top: 80px;
   padding-bottom: 20px;
   padding-inline: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 20px;
 }
 
 footer .socials {
@@ -107,6 +109,101 @@ footer .socials .icon {
 
 @media (prefers-color-scheme: dark) {
   footer .socials .icon {
+    filter: invert(100%);
+  }
+}
+
+section p {
+  max-width: 800px;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media screen and (min-width: 640px) {
+  .portfolio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card .thumbnail {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.card .tags .chip {
+  padding: 4px 8px;
+  border-radius: 9999px;
+  text-align: center;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-size: 0.875rem;
+  border: 1px solid #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card .tags .chip {
+    background-color: #334155;
+    color: #f1f5f9;
+    border-color: #f1f5f9;
+  }
+}
+
+.card .links {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .links a {
+  border: 1px solid #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  padding-inline: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.card .links a:nth-child(n + 2) {
+  border-top: none;
+}
+
+.card .links a:hover {
+  background-color: #e2e8f0;
+}
+
+.card .links .icon {
+  width: 24px;
+  vertical-align: middle;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card .links a {
+    border-color: #f1f5f9;
+  }
+
+  .card .links a:hover {
+    background-color: #334155;
+  }
+
+  .card .links .icon {
     filter: invert(100%);
   }
 }
